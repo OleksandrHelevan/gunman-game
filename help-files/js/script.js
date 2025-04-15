@@ -122,6 +122,7 @@ function nextLevel() {
         screen.style.display = 'none';
         panels.style.display = 'none';
         message.style.display = 'none';
+
         let scoreNum = +document.querySelector('.score-panel__score_num').innerHTML;
         winScreen.innerHTML = `<h2 class="win-screen__title">You have won the game with score: ${scoreNum}</h2>`
         winScreen.style.display = 'block';
