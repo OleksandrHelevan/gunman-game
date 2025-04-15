@@ -5,7 +5,7 @@ let level = 1,
     readyToDuel = false,
     time,
     fromLeft = true,
-    score,
+    score = 0,
     lives = 3,
     livesPanel = document.querySelector('.lives'),
     startButton = document.querySelector('.button-start-game'),
@@ -122,7 +122,8 @@ function nextLevel() {
         screen.style.display = 'none';
         panels.style.display = 'none';
         message.style.display = 'none';
-        winScreen.innerHTML = `<h2 class="win-screen__title">You have won the game with score: ${score}</h2>`
+        let scoreNum = +document.querySelector('.score-panel__score_num').innerHTML;
+        winScreen.innerHTML = `<h2 class="win-screen__title">You have won the game with score: ${scoreNum}</h2>`
         winScreen.style.display = 'block';
     }
 
@@ -210,7 +211,7 @@ function playerShootsGunman() {
 
 function scoreCount() {
     let scoreDiv = document.querySelector('.score-panel__score_num');
-    let temp = +((timeToDuel - parseInt(yourTime.innerHTML)) * level).toFixed(0);
+    let temp = +((timeToDuel - parseInt(yourTime.innerHTML)) * level * level).toFixed(0);
     let count  = () => {
         if (+scoreDiv.innerHTML - score < temp) {
             scoreDiv.innerHTML = +scoreDiv.innerHTML + 100;
