@@ -127,7 +127,7 @@ function nextLevel() {
         winScreen.innerHTML = `<h2 class="win-screen__title">You have won the game with score: ${scoreNum}</h2>`
         winScreen.style.display = 'block';
     }
-
+    fromLeft = Boolean(Math.floor(Math.random() * 2));
 }
 
 function moveGunman() {
