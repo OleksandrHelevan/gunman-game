@@ -22,13 +22,12 @@ let level = 1,
     showLvl = document.querySelector('.score-panel__level'),
     message = document.querySelector('.message');
 
-
-let introMus = new Audio('sfx/intro.m4a'),
-    waitingMus = new Audio('sfx/wait.m4a'),
-    shotMus = new Audio('sfx/shot.m4a'),
-    winMus = new Audio('sfx/win.m4a'),
-    fireMus = new Audio('sfx/fire.m4a'),
-    deathMus = new Audio('sfx/death.m4a');
+let introMus = new Audio('help-files/sfx/intro.m4a'),
+    waitingMus = new Audio('help-files/sfx/wait.m4a'),
+    shotMus = new Audio('help-files/sfx/shot.m4a'),
+    winMus = new Audio('help-files/sfx/win.m4a'),
+    fireMus = new Audio('help-files/sfx/fire.m4a'),
+    deathMus = new Audio('help-files/sfx/death.m4a');
 
 function startGame() {
     fromLeft = Math.random() < 0.5;
@@ -36,6 +35,7 @@ function startGame() {
     panels.style.display = 'block';
     screen.style.display = 'block';
     wrapper.style.display = 'block';
+    console.log(winMus)
 
 
     livesPanel.innerHTML = ""
@@ -213,7 +213,7 @@ function playerShootsGunman() {
 function scoreCount() {
     let scoreDiv = document.querySelector('.score-panel__score_num');
     let temp = +((timeToDuel - parseInt(yourTime.innerHTML)) * level * level).toFixed(0);
-    let count  = () => {
+    let count = () => {
         if (+scoreDiv.innerHTML - score < temp) {
             scoreDiv.innerHTML = +scoreDiv.innerHTML + 100;
             setTimeout(count, 10);
